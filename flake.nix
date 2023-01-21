@@ -12,7 +12,7 @@
         pkgs = import nixpkgs { inherit system; };
       in rec {
         packages.supabase = import ./supabase.nix { inherit pkgs; };
-        defaultPackage = packages.supabase;
+        packages.default = packages.supabase;
       }
     );
 }
