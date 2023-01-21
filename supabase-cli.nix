@@ -1,6 +1,6 @@
 { pkgs }:
 let
-  pname = "supabase";
+  pname = "supabase-cli";
   version = "1.34.5";
 in
 pkgs.buildGoModule {

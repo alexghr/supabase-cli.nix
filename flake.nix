@@ -11,8 +11,8 @@
       let
         pkgs = import nixpkgs { inherit system; };
       in rec {
-        packages.supabase = import ./supabase.nix { inherit pkgs; };
-        packages.default = packages.supabase;
+        packages.supabase-cli = import ./supabase-cli.nix { inherit pkgs; };
+        packages.default = packages.supabase-cli;
       }
     );
 }
