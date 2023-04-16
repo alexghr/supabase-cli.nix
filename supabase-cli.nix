@@ -1,7 +1,7 @@
 { pkgs }:
 let
   pname = "supabase-cli";
-  version = "1.46.2";
+  version = "1.50.4";
 in
 pkgs.buildGoModule {
   inherit pname;
@@ -11,10 +11,10 @@ pkgs.buildGoModule {
     owner = "supabase";
     repo = "cli";
     rev = "v${version}";
-    sha256 = "sha256-w02rtcEnQbvOif8IJZd2U0Am2Ak5AJEXu0RZuuFFooA=";
+    sha256 = "sha256-yT47tH6avSdRScRrrAknCh/jmru2a5wlwfHeDV/1/mQ=";
   };
 
-  vendorSha256 = "sha256-3X02RBh9kGXybY9ahkraFiROi8PJDIQb888DP2ObBjg=";
+  vendorSha256 = "sha256-PAsmUEw6nI2KTrvPCn2Dxm3mrM6f/O4i8P6P0UuDXzo=";
   postInstall = ''
     rm $out/bin/docs $out/bin/listdep
 
@@ -22,4 +22,5 @@ pkgs.buildGoModule {
     mv $out/bin/{codegen,supabase-codegen}
   '';
   doCheck = false;
+  meta.mainProgram = "supabase";
 }
