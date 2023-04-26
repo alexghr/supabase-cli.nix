@@ -7,7 +7,16 @@
   # inputs.flake-utils.
 
   outputs = { self, nixpkgs, flake-utils }:
-    flake-utils.lib.eachDefaultSystem (system:
+    {
+      overlays = {
+        supabase-cli = final: prev: {
+          supabase-cli = self.packages.${prev.system}.supabase-cli;
+        };
+
+        default = self.overlays.supabase-cli;
+      };
+    }
+    // flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = import nixpkgs { inherit system; };
       in rec {
